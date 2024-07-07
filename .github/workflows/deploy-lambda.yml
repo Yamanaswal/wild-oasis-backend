@@ -19,12 +19,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1 
 
-      - name: Package Lambda function
-        run: |
-          zip -r wild-oasis-auth.zip wild-oasis-backend/wild-oasis-auth-function/build/
-          
+      - name: Install zip
+        run: sudo apt-get install zip  # Install zip utility if not already installed
 
-      - name: Deploy Lambda wild-oasis-auth
+      - name: Package Lambda function - wild-oasis-auth
+        run: |
+          cd wild-oasis-backend/wild-oasis-auth-function/build/  # Navigate to the directory you want to zip
+          zip -r wild-oasis-auth.zip .  # Create a ZIP file containing all files and subdirectories
+
+          
+      - name: Deploy Lambda - wild-oasis-auth
         run: |
           aws lambda update-function-code \
             --function-name wild-oasis-auth \
