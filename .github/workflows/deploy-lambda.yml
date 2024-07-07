@@ -26,7 +26,7 @@ jobs:
         run: |
           ls -a
           cd $GITHUB_WORKSPACE/build/  # Navigate to the directory you want to zip
-          zip -r wild-oasis-auth.zip . # Create a ZIP file containing all files and subdirectories
+          # zip -r wild-oasis-auth.zip . # Create a ZIP file containing all files and subdirectories
 
           
       - name: Deploy Lambda - wild-oasis-auth
