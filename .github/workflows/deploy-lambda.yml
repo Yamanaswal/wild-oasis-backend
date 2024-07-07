@@ -1,12 +1,12 @@
-name: Deploy Lambda Function
+name: Deploy Lambda Functions
 
 on:
   push:
     branches:
-      - master  # Replace with your main branch name
+      - master
 
 jobs:
-  deploy:
+  deploy-lambdas:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,10 +17,10 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1  # Replace with your AWS region
+          aws-region: us-east-1 
 
-      - name: Deploy Lambda function
-        run: |
-          aws lambda update-function-code \
-            --function-name YourLambdaFunctionName \
-            --zip-file fileb://path/to/your/lambda/package.zip
+      # - name: Deploy Lambda wild-oasis-auth
+      #   run: |
+      #     aws lambda update-function-code \
+      #       --function-name wild-oasis-auth \
+      #       --zip-file fileb://path/to/lambda1/package.zip
