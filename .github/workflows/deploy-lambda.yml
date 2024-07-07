@@ -24,7 +24,7 @@ jobs:
 
       - name: Package Lambda function - wild-oasis-auth
         run: |
-          cd wild-oasis-backend/wild-oasis-auth-function/build/  # Navigate to the directory you want to zip
+          cd $GITHUB_WORKSPACE/wild-oasis-backend/wild-oasis-auth-function/build/  # Navigate to the directory you want to zip
           zip -r wild-oasis-auth.zip .  # Create a ZIP file containing all files and subdirectories
 
           
