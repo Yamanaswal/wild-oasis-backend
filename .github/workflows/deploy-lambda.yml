@@ -19,8 +19,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1 
 
-      # - name: Deploy Lambda wild-oasis-auth
-      #   run: |
-      #     aws lambda update-function-code \
-      #       --function-name wild-oasis-auth \
-      #       --zip-file fileb://path/to/lambda1/package.zip
+      - name: Package Lambda function
+        run: |
+          zip -r wild-oasis-auth.zip wild-oasis-auth/
+
+      - name: Deploy Lambda wild-oasis-auth
+        run: |
+          aws lambda update-function-code \
+            --function-name wild-oasis-auth \
+            --zip-file fileb://wild-oasis-auth.zip
