@@ -25,8 +25,8 @@ jobs:
       - name: Package Lambda function - wild-oasis-auth
         run: |
           ls -a
-          cd wild-oasis-auth-function/ # Navigate to the directory you want to zip
-          zip -r wild-oasis-auth.zip . # Create a ZIP file containing all files and subdirectories
+          cd wild-oasis-auth-function/
+          zip -r wild-oasis-auth.zip .
 
           
       - name: Deploy Lambda - wild-oasis-auth
