@@ -33,3 +33,16 @@ jobs:
           aws lambda update-function-code \
             --function-name wild-oasis-auth \
             --zip-file fileb://wild-oasis-auth-function/wild-oasis-auth.zip
+
+      - name: Package Lambda layer - wild-oasis-auth
+        run: |
+          ls -a
+          cd wild-oasis-auth-function/
+          zip -r wild-oasis-auth-layer.zip .
+
+      - name: Upload Lambda Layer - wild-oasis-auth
+        run: |
+          aws lambda publish-layer-version \
+            --layer-name wild_oasis_auth_layer \
+            --zip-file fileb://wild-oasis-auth-function/wild-oasis-auth-layer.zip \
+            --compatible-runtimes nodejs20.x
