@@ -37,7 +37,7 @@ jobs:
       - name: Package Lambda layer - wild-oasis-auth
         run: |
           ls -a
-          cd wild-oasis-auth-function/
+          cd wild-oasis-auth-function/node_modules
           zip -r wild-oasis-auth-layer.zip .
 
       - name: Upload Lambda Layer - wild-oasis-auth
