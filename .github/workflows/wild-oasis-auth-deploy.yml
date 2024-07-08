@@ -3,7 +3,7 @@ name: Deploy Lambda Functions
 on:
   push:
     branches:
-      - master
+      - wild-oasis-auth
 
 jobs:
   deploy-lambdas:
