@@ -25,7 +25,9 @@ async function createCabin(event, context) {
 
     try {
 
-        let requestJSON = JSON.parse(event.body);
+        console.log("EVENT BODY: ", event.body);
+        let requestJSON = JSON.parse(event);
+        console.log("EVENT BODY 1: ", event);
 
         await dynamo.send(
             new PutCommand({
