@@ -1,6 +1,4 @@
-import { createCabin } from "./src/create_cabin";
-
-export const TABLE_NAME = "wild_oasis_users";
+const { createCabin } = require("./src/create_cabin");
 
 exports.handler = async function (event, context, callback) {
 

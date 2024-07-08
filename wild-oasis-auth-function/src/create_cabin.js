@@ -1,13 +1,15 @@
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+const { TABLE_NAME } = require("../constants");
 
-import {
+const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
+
+const {
     DynamoDBDocumentClient,
     ScanCommand,
     PutCommand,
     GetCommand,
     DeleteCommand,
-} from "@aws-sdk/lib-dynamodb";
-import { TABLE_NAME } from "../index.js";
+} = require("@aws-sdk/lib-dynamodb");
+
 
 const client = new DynamoDBClient({});
 const dynamo = DynamoDBDocumentClient.from(client);
