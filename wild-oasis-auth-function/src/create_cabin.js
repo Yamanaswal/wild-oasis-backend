@@ -14,7 +14,7 @@ const {
 const client = new DynamoDBClient({});
 const dynamo = DynamoDBDocumentClient.from(client);
 
-export async function createCabin(event, context) {
+async function createCabin(event, context) {
     console.log("event => ", event);
 
     let body;
@@ -54,4 +54,8 @@ export async function createCabin(event, context) {
         body,
         headers,
     };
+}
+
+module.exports = {
+    createCabin,
 }
