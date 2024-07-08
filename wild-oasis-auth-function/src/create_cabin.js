@@ -32,7 +32,6 @@ async function createCabin(event, context) {
             new PutCommand({
                 TableName: TABLE_NAME,
                 Item: {
-                    id: requestJSON.id,
                     price: requestJSON.price,
                     name: requestJSON.name,
                 },
