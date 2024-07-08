@@ -24,7 +24,6 @@ jobs:
 
       - name: Package Lambda function - wild-oasis-auth
         run: |
-          ls -a
           cd wild-oasis-auth-function/
           zip -r wild-oasis-auth.zip .
 
@@ -33,12 +32,6 @@ jobs:
           aws lambda update-function-code \
             --function-name wild-oasis-auth \
             --zip-file fileb://wild-oasis-auth-function/wild-oasis-auth.zip
-
-      - name: Package Lambda layer - wild-oasis-auth
-        run: |
-          ls -a
-          cd wild-oasis-auth-function/node_modules
-          zip -r wild-oasis-auth-layer.zip .
 
       - name: Upload Lambda Layer - wild-oasis-auth
         run: |
