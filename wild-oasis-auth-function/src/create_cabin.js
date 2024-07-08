@@ -1,7 +1,7 @@
 const { TABLE_NAME } = require("../constants");
+const { v4: uuidv4 } = require('uuid');
 
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-
 const {
     DynamoDBDocumentClient,
     ScanCommand,
@@ -24,14 +24,15 @@ async function createCabin(event, context) {
     };
 
     try {
-
-        console.log("EVENT BODY: ", event);
         let requestJSON = event;
+
+        const id = uuidv4(); // Generate a new ID
 
         await dynamo.send(
             new PutCommand({
                 TableName: TABLE_NAME,
                 Item: {
+                    id: id,
                     price: requestJSON.price,
                     name: requestJSON.name,
                 },
