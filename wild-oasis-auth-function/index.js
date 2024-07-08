@@ -1,6 +1,6 @@
 const { createCabin } = require("./src/create_cabin");
 
-exports.handler = async function (event, context, callback) {
+module.exports.handler = async function (event, context, callback) {
 
     switch (event.route_key) {
         case "create_cabin":
