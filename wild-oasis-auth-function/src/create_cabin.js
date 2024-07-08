@@ -1,5 +1,6 @@
-const { TABLE_NAME } = require("../constants");
+
 const { v4: uuidv4 } = require('uuid');
+const { TABLE_NAME } = require("../constants");
 
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 const {
